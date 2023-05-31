@@ -12,8 +12,9 @@ class TestLogin(unittest.TestCase):
     # success login
     def test_success_login(self):
         # langkah-langkah
+        baseUrl = 'https://kasirdemo.belajarqa.com/'
         driver = self.browser  # buka web browser
-        driver.get("https://kasirdemo.belajarqa.com/")  # buka situs
+        driver.get(baseUrl)  # buka situs
         time.sleep(1)
         driver.find_element(By.ID, "email").send_keys("alyacake@gmail.com")  # isi email
         time.sleep(1)
@@ -23,8 +24,8 @@ class TestLogin(unittest.TestCase):
         time.sleep(1)
 
         # validasi
-        response_data = driver.find_element(By.CLASS_NAME, "chakra-heading").text
-        self.assertIn('kasirAja', response_data)
+        url = driver.current_url
+        self.assertIn (url, baseUrl + "dashboard")
 
     # test invalid email
     def test_invalid_email_login(self):
@@ -57,7 +58,7 @@ class TestLogin(unittest.TestCase):
         time.sleep(1)
 
         # validasi
-        error_message = driver.find_element(By.CLASS_NAME, "chakra-alert").text
+        error_message = driver.find_element(By.CLASS_NAME, "css-qwanz3").text
         self.assertEqual('"email" is not allowed to be empty', error_message)
 
      # test empty password

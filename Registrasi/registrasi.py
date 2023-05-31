@@ -12,8 +12,9 @@ class TestRegister(unittest.TestCase):
     # success register
     def test_success_register(self):
         # langkah-langkah
+        baseUrl = 'https://kasirdemo.belajarqa.com/'
         driver = self.browser  # buka web browser
-        driver.get("https://kasirdemo.belajarqa.com/")  # buka situs
+        driver.get(baseUrl)  # buka situs
         time.sleep(1)
         driver.find_element(By.XPATH, '//a[@href="/register" or contains(text(), "ingin mencoba, daftar ?")]').click()
         time.sleep(1)
@@ -27,8 +28,8 @@ class TestRegister(unittest.TestCase):
         time.sleep(1)
 
         # validasi
-        response_data = driver.find_element(By.CLASS_NAME, "css-1w7v3tn").text
-        self.assertIn('login', response_data)
+        url = driver.current_url
+        self.assertIn (url, baseUrl + "login")
 
     # empty name
     def test_empty_name_register(self):

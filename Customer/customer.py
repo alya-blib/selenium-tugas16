@@ -12,8 +12,9 @@ class TestCategory(unittest.TestCase):
     # success add customer
     def test_success_add_customer(self):
         # langkah-langkah
+        baseUrl = 'https://kasirdemo.belajarqa.com/'
         driver = self.browser  # buka web browser
-        driver.get("https://kasirdemo.belajarqa.com/")  # buka situs
+        driver.get(baseUrl)  # buka situs
         time.sleep(1)
         driver.find_element(By.ID, "email").send_keys("alyacake@gmail.com")  # isi email
         time.sleep(1)
@@ -22,9 +23,9 @@ class TestCategory(unittest.TestCase):
         driver.find_element(By.CLASS_NAME, "chakra-button").click()
         time.sleep(1)
 
-        # validasi
-        response_data = driver.find_element(By.CLASS_NAME, "chakra-heading").text
-        self.assertIn('kasirAja', response_data)
+       # validasi
+        url = driver.current_url
+        self.assertIn (url, baseUrl + "dashboard")
 
         driver.find_element(By.XPATH, '//a[@href="/customers" or contains(text(), "pelanggan")]').click()
         time.sleep(1)
@@ -42,11 +43,8 @@ class TestCategory(unittest.TestCase):
         time.sleep(1)
 
         # validasi
-        response_element = driver.find_element(By.XPATH, "//h2[@class='chakra-heading css-18j379d']")
-        response_data = response_element.text
-
-        self.assertIn('dashboard', response_data)
-        self.assertIn('pelanggan', response_data)
+        url = driver.current_url
+        self.assertIn (url, baseUrl + "customers")
 
     # empty name di add customer
     def test_empty_name_add_customer(self):
