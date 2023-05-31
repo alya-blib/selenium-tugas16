@@ -14,17 +14,17 @@ class TestRegister(unittest.TestCase):
         # langkah-langkah
         driver = self.browser  # buka web browser
         driver.get("https://kasirdemo.belajarqa.com/")  # buka situs
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.XPATH, '//a[@href="/register" or contains(text(), "ingin mencoba, daftar ?")]').click()
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "name").send_keys("agni cake")  # isi email
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "email").send_keys("agnicake@gmail.com")  # isi email
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "password").send_keys("password")  # isi password
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.CLASS_NAME, "css-1n8i4of").click()
-        time.sleep(3)
+        time.sleep(1)
 
         # validasi
         response_data = driver.find_element(By.CLASS_NAME, "css-1w7v3tn").text
@@ -35,17 +35,17 @@ class TestRegister(unittest.TestCase):
         # langkah-langkah
         driver = self.browser  # buka web browser
         driver.get("https://kasirdemo.belajarqa.com/")  # buka situs
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.XPATH, '//a[@href="/register" or contains(text(), "ingin mencoba, daftar ?")]').click()
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "name").send_keys("")  # isi email
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "email").send_keys("agnicake@gmail.com")  # isi email
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "password").send_keys("password")  # isi password
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.CLASS_NAME, "css-1n8i4of").click()
-        time.sleep(3)
+        time.sleep(1)
 
         # validasi
         error_message = driver.find_element(By.CLASS_NAME, "chakra-alert").text
@@ -56,17 +56,17 @@ class TestRegister(unittest.TestCase):
         # langkah-langkah
         driver = self.browser  # buka web browser
         driver.get("https://kasirdemo.belajarqa.com/")  # buka situs
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.XPATH, '//a[@href="/register" or contains(text(), "ingin mencoba, daftar ?")]').click()
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "name").send_keys("agni cake")  # isi email
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "email").send_keys("")  # isi email
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "password").send_keys("password")  # isi password
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.CLASS_NAME, "css-1n8i4of").click()
-        time.sleep(3)
+        time.sleep(1)
 
         # validasi
         error_message = driver.find_element(By.CLASS_NAME, "chakra-alert").text
@@ -77,17 +77,17 @@ class TestRegister(unittest.TestCase):
         # langkah-langkah
         driver = self.browser  # buka web browser
         driver.get("https://kasirdemo.belajarqa.com/")  # buka situs
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.XPATH, '//a[@href="/register" or contains(text(), "ingin mencoba, daftar ?")]').click()
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "name").send_keys("agni cake")  # isi email
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "email").send_keys("agnicake@gmail.com")  # isi email
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "password").send_keys("")  # isi password
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.CLASS_NAME, "css-1n8i4of").click()
-        time.sleep(3)
+        time.sleep(1)
 
         # validasi
         error_message = driver.find_element(By.CLASS_NAME, "chakra-alert").text
@@ -98,17 +98,17 @@ class TestRegister(unittest.TestCase):
         # langkah-langkah
         driver = self.browser  # buka web browser
         driver.get("https://kasirdemo.belajarqa.com/")  # buka situs
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.XPATH, '//a[@href="/register" or contains(text(), "ingin mencoba, daftar ?")]').click()
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "name").send_keys("agni cake")  # isi email
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "email").send_keys("agnicake")  # isi email
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "password").send_keys("password")  # isi password
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.CLASS_NAME, "css-1n8i4of").click()
-        time.sleep(3)
+        time.sleep(1)
 
         # validasi
         error_message = driver.find_element(By.CLASS_NAME, "chakra-alert").text

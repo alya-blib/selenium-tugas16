@@ -14,28 +14,28 @@ class TestCategory(unittest.TestCase):
         # langkah-langkah
         driver = self.browser  # buka web browser
         driver.get("https://kasirdemo.belajarqa.com/")  # buka situs
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "email").send_keys("alyacake@gmail.com")  # isi email
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "password").send_keys("password")  # isi password
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.CLASS_NAME, "chakra-button").click()
-        time.sleep(3)
+        time.sleep(1)
 
         # validasi
         response_data = driver.find_element(By.CLASS_NAME, "chakra-heading").text
         self.assertIn('kasirAja', response_data)
 
         driver.find_element(By.XPATH, '//a[@href="/categories" or contains(text(), "kategori")]').click()
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.XPATH, '//a[@href="/categories/create" or contains(text(), "tambah")]').click()
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "nama").send_keys("elektronik")  # isi nama
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "deskripsi").send_keys("semua nya ada garansi")  # isi deskripsi
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.CLASS_NAME, "chakra-button").click()
-        time.sleep(3)
+        time.sleep(1)
 
         # validasi
         response_element = driver.find_element(By.XPATH, "//h2[@class='chakra-heading css-18j379d']")
@@ -49,28 +49,28 @@ class TestCategory(unittest.TestCase):
         # langkah-langkah
         driver = self.browser  # buka web browser
         driver.get("https://kasirdemo.belajarqa.com/")  # buka situs
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "email").send_keys("alyacake@gmail.com")  # isi email
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "password").send_keys("password")  # isi password
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.CLASS_NAME, "chakra-button").click()
-        time.sleep(3)
+        time.sleep(1)
 
         # validasi
         response_data = driver.find_element(By.CLASS_NAME, "chakra-heading").text
         self.assertIn('kasirAja', response_data)
 
         driver.find_element(By.XPATH, '//a[@href="/categories" or contains(text(), "kategori")]').click()
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.XPATH, '//a[@href="/categories/create" or contains(text(), "tambah")]').click()
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "nama").send_keys("")  # isi nama
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "deskripsi").send_keys("semua nya ada garansi")  # isi deskripsi
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.CLASS_NAME, "chakra-button").click()
-        time.sleep(3)
+        time.sleep(1)
 
        # validasi
         error_message = driver.find_element(By.CLASS_NAME, "chakra-alert").text

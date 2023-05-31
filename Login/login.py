@@ -14,13 +14,13 @@ class TestLogin(unittest.TestCase):
         # langkah-langkah
         driver = self.browser  # buka web browser
         driver.get("https://kasirdemo.belajarqa.com/")  # buka situs
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "email").send_keys("alyacake@gmail.com")  # isi email
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "password").send_keys("password")  # isi password
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.CLASS_NAME, "chakra-button").click()
-        time.sleep(3)
+        time.sleep(1)
 
         # validasi
         response_data = driver.find_element(By.CLASS_NAME, "chakra-heading").text
@@ -31,13 +31,13 @@ class TestLogin(unittest.TestCase):
         # langkah-langkah
         driver = self.browser  # buka web browser
         driver.get("https://kasirdemo.belajarqa.com/")  # buka situs
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "email").send_keys("invalidemail@gmail.com")  # isi email yang salah
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "password").send_keys("password")  # isi password
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.CLASS_NAME, "chakra-button").click()
-        time.sleep(3)
+        time.sleep(1)
 
         # validasi
         error_message = driver.find_element(By.CLASS_NAME, "chakra-alert").text
@@ -48,13 +48,13 @@ class TestLogin(unittest.TestCase):
         # langkah-langkah
         driver = self.browser  # buka web browser
         driver.get("https://kasirdemo.belajarqa.com/")  # buka situs
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "email").send_keys("")  # email kosong
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "password").send_keys("password")  # isi password
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.CLASS_NAME, "chakra-button").click()
-        time.sleep(3)
+        time.sleep(1)
 
         # validasi
         error_message = driver.find_element(By.CLASS_NAME, "chakra-alert").text
@@ -65,13 +65,13 @@ class TestLogin(unittest.TestCase):
         # langkah-langkah
         driver = self.browser  # buka web browser
         driver.get("https://kasirdemo.belajarqa.com/")  # buka situs
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "email").send_keys("alyacake@gmail.com")  # isi email
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.ID, "password").send_keys("")  # password kosong
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element(By.CLASS_NAME, "chakra-button").click()
-        time.sleep(3)
+        time.sleep(1)
 
         # validasi
         error_message = driver.find_element(By.CLASS_NAME, "chakra-alert").text
