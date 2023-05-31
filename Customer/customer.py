@@ -42,7 +42,10 @@ class TestCategory(unittest.TestCase):
         time.sleep(3)
 
         # validasi
-        response_data = driver.find_element(By.CLASS_NAME, "chakra-heading").text
+        response_element = driver.find_element(By.XPATH, "//h2[@class='chakra-heading css-18j379d']")
+        response_data = response_element.text
+
+        self.assertIn('dashboard', response_data)
         self.assertIn('pelanggan', response_data)
 
     # empty name di add customer
