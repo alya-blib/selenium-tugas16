@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 import baseLogin
 from PageObject.locator import elem
+from DataStorage.data import inputan
 
 class TestCategory(unittest.TestCase):
 
@@ -21,22 +22,22 @@ class TestCategory(unittest.TestCase):
 
         # validasi
         url = driver.current_url
-        self.assertIn (url, elem.baseUrl + "dashboard")
+        self.assertIn (url, elem.baseUrl + inputan.linkDashboard)
 
         driver.find_element(By.XPATH, elem.linkKategoi).click()
         time.sleep(1)
         driver.find_element(By.XPATH, elem.buttonTambah).click()
         time.sleep(1)
-        driver.find_element(By.ID, elem.namaKategori).send_keys("elektronik")  # isi nama
+        driver.find_element(By.ID, elem.namaKategori).send_keys(inputan.isiNamaKategori)  # isi nama
         time.sleep(1)
-        driver.find_element(By.ID, elem.deskripsi).send_keys("semua nya ada garansi")  # isi deskripsi
+        driver.find_element(By.ID, elem.deskripsi).send_keys(inputan.isiDeskripsiKategori)  # isi deskripsi
         time.sleep(1)
         driver.find_element(By.CLASS_NAME, elem.loginButton).click()
         time.sleep(1)
 
         # validasi
         url = driver.current_url
-        self.assertIn (url, elem.baseUrl + "categories")
+        self.assertIn (url, elem.baseUrl + inputan.linkKategori)
 
     # empty name di add category
     def test_empty_name_add_category(self):
@@ -48,7 +49,7 @@ class TestCategory(unittest.TestCase):
 
         # validasi
         url = driver.current_url
-        self.assertIn (url, elem.baseUrl + "dashboard")
+        self.assertIn (url, elem.baseUrl + inputan.linkDashboard)
 
         driver.find_element(By.XPATH, elem.linkKategoi).click()
         time.sleep(1)
@@ -56,14 +57,14 @@ class TestCategory(unittest.TestCase):
         time.sleep(1)
         driver.find_element(By.ID, elem.namaKategori).send_keys("")  # isi nama
         time.sleep(1)
-        driver.find_element(By.ID, elem.deskripsi).send_keys("semua nya ada garansi")  # isi deskripsi
+        driver.find_element(By.ID, elem.deskripsi).send_keys(inputan.isiDeskripsiKategori)  # isi deskripsi
         time.sleep(1)
         driver.find_element(By.CLASS_NAME, elem.loginButton).click()
         time.sleep(1)
 
        # validasi
         error_message = driver.find_element(By.CLASS_NAME, elem.alert).text
-        self.assertEqual('"name" is not allowed to be empty', error_message)
+        self.assertEqual(inputan.errorMessageName, error_message)
 
     def tearDown(self):
         self.browser.close()

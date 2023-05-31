@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 import baseLogin
 from PageObject.locator import elem
+from DataStorage.data import inputan
 
 class TestCategory(unittest.TestCase):
 
@@ -21,26 +22,26 @@ class TestCategory(unittest.TestCase):
 
        # validasi
         url = driver.current_url
-        self.assertIn (url, elem.baseUrl + "dashboard")
+        self.assertIn (url, elem.baseUrl + inputan.linkDashboard)
 
         driver.find_element(By.XPATH, elem.linkpelanggan).click()
         time.sleep(1)
         driver.find_element(By.XPATH, elem.buttonTambah).click()
         time.sleep(1)
-        driver.find_element(By.ID, elem.namaKategori).send_keys("hari")  # isi nama
+        driver.find_element(By.ID, elem.namaKategori).send_keys(inputan.namaPelanggan)  # isi nama
         time.sleep(1)
-        driver.find_element(By.ID, elem.noHp).send_keys("086372837282")  # isi no hp
+        driver.find_element(By.ID, elem.noHp).send_keys(inputan.noHpPelanggan)  # isi no hp
         time.sleep(1)
-        driver.find_element(By.ID, elem.alamat).send_keys("cikunir")  # isi alamat
+        driver.find_element(By.ID, elem.alamat).send_keys(inputan.alamatPelanggan)  # isi alamat
         time.sleep(1)
-        driver.find_element(By.ID, elem.keterangan).send_keys("cari elektronik")  # isi keterangan
+        driver.find_element(By.ID, elem.keterangan).send_keys(inputan.keteranganPelanggan)  # isi keterangan
         time.sleep(1)
         driver.find_element(By.CLASS_NAME, elem.loginButton).click()
         time.sleep(1)
 
         # validasi
         url = driver.current_url
-        self.assertIn (url, elem.baseUrl + "customers")
+        self.assertIn (url, elem.baseUrl + inputan.linkpelanggan)
 
     # empty name di add customer
     def test_empty_name_add_customer(self):
@@ -52,7 +53,7 @@ class TestCategory(unittest.TestCase):
 
          # validasi
         url = driver.current_url
-        self.assertIn (url, elem.baseUrl + "dashboard")
+        self.assertIn (url, elem.baseUrl + inputan.linkDashboard)
 
         driver.find_element(By.XPATH, elem.linkpelanggan).click()
         time.sleep(1)
@@ -60,18 +61,18 @@ class TestCategory(unittest.TestCase):
         time.sleep(1)
         driver.find_element(By.ID, elem.namaKategori).send_keys("")  # isi nama
         time.sleep(1)
-        driver.find_element(By.ID, elem.noHp).send_keys("086372837282")  # isi no hp
+        driver.find_element(By.ID, elem.noHp).send_keys(inputan.noHpPelanggan)  # isi no hp
         time.sleep(1)
-        driver.find_element(By.ID, elem.alamat).send_keys("cikunir")  # isi alamat
+        driver.find_element(By.ID, elem.alamat).send_keys(inputan.alamatPelanggan)  # isi alamat
         time.sleep(1)
-        driver.find_element(By.ID, elem.keterangan).send_keys("cari elektronik")  # isi keterangan
+        driver.find_element(By.ID, elem.keterangan).send_keys(inputan.keteranganPelanggan)  # isi keterangan
         time.sleep(1)
         driver.find_element(By.CLASS_NAME, elem.loginButton).click()
         time.sleep(1)
 
        # validasi
         error_message = driver.find_element(By.CLASS_NAME, elem.alert).text
-        self.assertEqual('"name" is not allowed to be empty', error_message)
+        self.assertEqual(inputan.errorMessageName, error_message)
 
     def tearDown(self):
         self.browser.close()

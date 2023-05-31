@@ -1,0 +1,22 @@
+class inputan():
+    validEmail = "alyacake@gmail.com"
+    validPassword = "password"
+    linkDashboard = "dashboard"
+    isiNamaKategori = "elektronik"
+    isiDeskripsiKategori = "semua nya ada garansi"
+    linkKategori = "categories"
+    errorMessageName = '"name" is not allowed to be empty'
+    namaPelanggan = "hari"
+    noHpPelanggan = "086372837282"
+    alamatPelanggan = "cikunir"
+    keteranganPelanggan = "cari elektronik"
+    linkpelanggan = "customers"
+    invalidEmail = "invalidemail@gmail.com"
+    errorKredensial = "Kredensial yang Anda berikan salah"
+    errorMessageEmail = '"email" is not allowed to be empty'
+    errorMessagePassword = '"password" is not allowed to be empty'
+    isiNamaToko = "agni cake"
+    isiEmailToko = "agnicake@gmail.com"
+    linkLogin = "login"
+    notFormatEmail = "agnicake"
+    errorInvalidEmail = '"email" must be a valid email'
