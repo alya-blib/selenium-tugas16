@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 import baseLogin
+from PageObject.locator import elem
 
 class TestCategory(unittest.TestCase):
 
@@ -13,64 +14,63 @@ class TestCategory(unittest.TestCase):
     # success add customer
     def test_success_add_customer(self):
         # langkah-langkah
-        baseUrl = 'https://kasirdemo.belajarqa.com/'
         driver = self.browser  # buka web browser
-        driver.get(baseUrl)  # buka situs
+        driver.get(elem.baseUrl)  # buka situs
         time.sleep(1)
         baseLogin.test_success_login(driver)
 
        # validasi
         url = driver.current_url
-        self.assertIn (url, baseUrl + "dashboard")
+        self.assertIn (url, elem.baseUrl + "dashboard")
 
-        driver.find_element(By.XPATH, '//a[@href="/customers" or contains(text(), "pelanggan")]').click()
+        driver.find_element(By.XPATH, elem.linkpelanggan).click()
         time.sleep(1)
-        driver.find_element(By.XPATH, '//a[@href="/customers/create" or contains(text(), "tambah")]').click()
+        driver.find_element(By.XPATH, elem.buttonTambah).click()
         time.sleep(1)
-        driver.find_element(By.ID, "nama").send_keys("hari")  # isi nama
+        driver.find_element(By.ID, elem.namaKategori).send_keys("hari")  # isi nama
         time.sleep(1)
-        driver.find_element(By.ID, "no.hp").send_keys("086372837282")  # isi no hp
+        driver.find_element(By.ID, elem.noHp).send_keys("086372837282")  # isi no hp
         time.sleep(1)
-        driver.find_element(By.ID, "alamat").send_keys("cikunir")  # isi alamat
+        driver.find_element(By.ID, elem.alamat).send_keys("cikunir")  # isi alamat
         time.sleep(1)
-        driver.find_element(By.ID, "keterangan").send_keys("cari elektronik")  # isi keterangan
+        driver.find_element(By.ID, elem.keterangan).send_keys("cari elektronik")  # isi keterangan
         time.sleep(1)
-        driver.find_element(By.CLASS_NAME, "chakra-button").click()
+        driver.find_element(By.CLASS_NAME, elem.loginButton).click()
         time.sleep(1)
 
         # validasi
         url = driver.current_url
-        self.assertIn (url, baseUrl + "customers")
+        self.assertIn (url, elem.baseUrl + "customers")
 
     # empty name di add customer
     def test_empty_name_add_customer(self):
         # langkah-langkah
         driver = self.browser  # buka web browser
-        driver.get("https://kasirdemo.belajarqa.com/")  # buka situs
+        driver.get(elem.baseUrl)  # buka situs
         time.sleep(1)
         baseLogin.test_success_login(driver)
 
-        # validasi
-        response_data = driver.find_element(By.CLASS_NAME, "chakra-heading").text
-        self.assertIn('kasirAja', response_data)
+         # validasi
+        url = driver.current_url
+        self.assertIn (url, elem.baseUrl + "dashboard")
 
-        driver.find_element(By.XPATH, '//a[@href="/customers" or contains(text(), "pelanggan")]').click()
+        driver.find_element(By.XPATH, elem.linkpelanggan).click()
         time.sleep(1)
-        driver.find_element(By.XPATH, '//a[@href="/customers/create" or contains(text(), "tambah")]').click()
+        driver.find_element(By.XPATH, elem.buttonTambah).click()
         time.sleep(1)
-        driver.find_element(By.ID, "nama").send_keys("")  # isi nama
+        driver.find_element(By.ID, elem.namaKategori).send_keys("")  # isi nama
         time.sleep(1)
-        driver.find_element(By.ID, "no.hp").send_keys("086372837282")  # isi no hp
+        driver.find_element(By.ID, elem.noHp).send_keys("086372837282")  # isi no hp
         time.sleep(1)
-        driver.find_element(By.ID, "alamat").send_keys("cikunir")  # isi alamat
+        driver.find_element(By.ID, elem.alamat).send_keys("cikunir")  # isi alamat
         time.sleep(1)
-        driver.find_element(By.ID, "keterangan").send_keys("cari elektronik")  # isi keterangan
+        driver.find_element(By.ID, elem.keterangan).send_keys("cari elektronik")  # isi keterangan
         time.sleep(1)
-        driver.find_element(By.CLASS_NAME, "chakra-button").click()
+        driver.find_element(By.CLASS_NAME, elem.loginButton).click()
         time.sleep(1)
 
        # validasi
-        error_message = driver.find_element(By.CLASS_NAME, "chakra-alert").text
+        error_message = driver.find_element(By.CLASS_NAME, elem.alert).text
         self.assertEqual('"name" is not allowed to be empty', error_message)
 
     def tearDown(self):
