@@ -30,7 +30,7 @@ class TestRegister(unittest.TestCase):
 
         # validasi
         url = driver.current_url
-        self.assertIn (url, elem.baseUrl + inputan.linkLogin)
+        self.assertIn (url, elem.baseUrl + "login")
 
     # empty name
     def test_empty_name_register(self):
